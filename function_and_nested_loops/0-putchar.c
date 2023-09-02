@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include "main.h"
 
 /**
 * main - Entry point
@@ -15,11 +15,11 @@ int main(void)
 
 	while (text[i] != '\0')
 	{
-		putchar(text[i]);
+		_putchar(text[i]);
 		i++;
 	}
 
-	putchar(newline);
+	_putchar(newline);
 
 return (0);
 
