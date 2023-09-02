@@ -33,7 +33,7 @@ int b;
 		b = r;
 	}
 
-	_putchar(b);
+	_putchar(b + '0');
 
 
 return (b);
