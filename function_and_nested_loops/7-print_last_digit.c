@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include "main.h"
 
 /**
 * print_last_digit - prints last digit of an int
@@ -32,6 +32,9 @@ int b;
 		r = r % 10;
 		b = r;
 	}
+
+	_putchar(b);
+
 
 return (b);
 
