@@ -17,7 +17,7 @@ int a, b, c;
 		for (b = 0; b < 10; b++)
 		{
 			c = a * b;
-			
+
 			if (b == 0)
 			{
 				_putchar(c + '0');
