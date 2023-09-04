@@ -9,22 +9,17 @@
 
 int main(void)
 {
-	int a, sum1, sum2, sum;
+	int a;
+	int sum = 0;
+
 	for (a = 1; a < 1024; a++)
 	{
-		if (a % 3 == 0)
+		if (a % 3 == 0 || a % 5 == 0)
 		{
-			sum1 =+ a;
+			sum = sum + a;
 		}
-		
-		if (a % 5 == 0)
-		{
-			sum2 =+ a;
-		}
-
 	}
 
-	sum = sum1 + sum2;
 	printf("%d\n", sum);
 
 return (0);
