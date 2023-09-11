@@ -15,9 +15,9 @@ int main(void)
 
 	largest = *arr;
 
-	for (i = 0, i < 5; i++)
+	for (i = 0; i < 5; i++)
 	{
-		if largest < *(arr + i)
+		if (largest < *(arr + i))
 		{
 			largest = *(arr + i);
 		}
