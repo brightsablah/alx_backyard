@@ -1,26 +1,22 @@
 #include "main.h"
 
 /**
-* main -
+* _strlen - returns length of string
 * Description:
 *
-* Return: Always 0 (Success)
+* Return: int value (Success)
 */
 
 int _strlen(char* s)
 {
-	int i;
 	int count;
-	char array[];
 
 	count = 0;
-	i = 0;
-	array = *s;
 
-	while (array[i] != "\0")
+	while (*s != '\0')
 	{
 		count++;
-		i++;
+		s++;
 	}
 
 return (count);
