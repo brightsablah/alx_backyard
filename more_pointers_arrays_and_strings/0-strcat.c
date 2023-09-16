@@ -11,26 +11,35 @@
 char *_strcat(char *dest, char *src)
 {
 
-	char temp[];
-	int dest_index = 0;
-	int src_index = 0;
+	int dest_len = 0;
+	int src_len = 0;
+	int i;
+	char *pointer = dest;
 
-	while (*dest[dest_index] != '\0')
+	while (*dest != '\0')
 	{
-		temp[dest_index] = *dest[dest_index];
-		dest_index++;
+		dest++;
+		dest_len++;
 	}
 
-	while (*src[src_index] != '\0')
+	while (*src != '\0')
 	{
-		temp[dest_index + src_index] = *src[src_index];
-		src_index++;
+		src++;
+		src_len++;
 	}
 
-	temp[dest_index + src_index] = *src[src_index];
 
-	*dest = temp;
+	dest -= dest_len;
+	src -= src_len;
 
-return (dest);
+	for (i = 0; i < src_len; i++)
+	{
+		dest[dest_len + i] = src[i];
+	}
+
+	dest[dest_len + src_len] = '\0';
+
+
+return (pointer);
 
 }
