@@ -1,26 +1,23 @@
 #include "main.h"
 
 /**
-* main - Entry point
-* Description:
-*
+* reverse_array - reverses array
+* Description: switches values to reverse components of an aray
+* @a: array
+* @n: array size
 * Return: Always 0 (Success)
 */
 
 void reverse_array(int *a, int n)
 {
-	int i;
+	int i, c;
 
-	i = n;
-	while(i < n)
+	for (i = 0; i < n / 2; i++)
 	{
-		if (i != 0)
-		{
-			_putchar(',');
-			_putchar(' ');
-		}
+		c = a[i];
+		a[i] = a[n - 1 - i];
+		a[n - 1 - i] = c;
 	}
 
-return (0);
 
 }
