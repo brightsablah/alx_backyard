@@ -13,9 +13,10 @@
 
 int main(int argc, char *argv[])
 {
-	char arr[1000];
+	char *mul = malloc(sizeof(char) * 100);
 
-	char *mul = arr;
+	if (mul == NULL)
+		exit(98);
 
 	if (argc != 3)
 	{
@@ -27,7 +28,9 @@ int main(int argc, char *argv[])
 
 	strmul(argv[1], argv[2], mul);
 
-	_puts(mul);
+	printf("%s\n", mul);
+
+	free(mul);
 
 return (0);
 
@@ -45,11 +48,11 @@ void _puts(char *str)
 {
 	while (*str != '\0')
 	{
-		_putchar(*str);
+		putchar(*str);
 		str++;
 	}
 
-	_putchar('\n');
+	putchar('\n');
 
 }
 
@@ -66,15 +69,14 @@ void _puts(char *str)
 void strmul(char *num1, char *num2, char *result)
 {
 	/*char *result;*/
-	char arr[1000];
 	int len1, len2, product;
 	int i, j, k;
 	int *mul_result;
 
 	len1 = _strlen(num1);
 	len2 = _strlen(num2);
-	result = arr;
 	mul_result = (int *)(int_calloc(len1 + len2, sizeof(int)));
+	result = (char *)realloc(result, (len1 + len2 + 1) * sizeof(char));
 
 	for (i = len2 - 1; i >= 0; i--)
 	{
