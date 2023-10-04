@@ -1,6 +1,7 @@
 #include "main.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 /**
 * main - Entry point
@@ -12,11 +13,13 @@
 
 int main(int argc, char *argv[])
 {
-	char mul[1000];
+	char arr[1000];
+
+	char *mul = arr;
 
 	if (argc != 3)
 	{
-		_puts("Error\n");
+		printf("Error\n");
 		exit(98);
 	}
 
@@ -63,13 +66,14 @@ void _puts(char *str)
 void strmul(char *num1, char *num2, char *result)
 {
 	/*char *result;*/
+	char arr[1000];
 	int len1, len2, product;
 	int i, j, k;
 	int *mul_result;
 
 	len1 = _strlen(num1);
 	len2 = _strlen(num2);
-
+	result = arr;
 	mul_result = (int *)(int_calloc(len1 + len2, sizeof(int)));
 
 	for (i = len2 - 1; i >= 0; i--)
@@ -87,7 +91,7 @@ void strmul(char *num1, char *num2, char *result)
 
 	if (k == len1 + len2)
 	{
-		result = "0";
+		strcpy(result, "0");
 		free(mul_result);
 		/*return (result);*/
 	}
