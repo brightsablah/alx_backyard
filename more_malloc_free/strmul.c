@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
 
 	/* check if strings are numbers only */
 
-	strmul(argv[1], argv[2], mul);
+	strmul(argv + 1, argv + 2, mul);
 
 	printf("%s\n", mul);
 
