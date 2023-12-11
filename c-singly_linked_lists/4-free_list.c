@@ -7,7 +7,7 @@
 *
 * Return: void
 */
-void free_list(list_t *head);
+void free_list(list_t *head)
 {
 	list_t *current_node;
 
@@ -15,7 +15,7 @@ void free_list(list_t *head);
 	{
 		current_node = head;
 		head = head->next;
-		free(temp->str);
-		free(temp);
+		free(current_node->str);
+		free(current_node);
 	}
 }
