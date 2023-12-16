@@ -37,4 +37,6 @@ listint_t *find_listint_loop(listint_t *head);
 
 int _putchar(char c);
 void print_number(int n);
+const listint_t **_realloc(const listint_t **list, size_t size,
+const listint_t *new);
 #endif
