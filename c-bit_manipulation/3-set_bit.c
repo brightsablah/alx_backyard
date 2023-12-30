@@ -9,16 +9,15 @@
  * The value of the bit at the specified index (0 or 1),
  * or -1 if an error occurred (if index is out of range).
  */
-int set_bit(unsigned long int n, unsigned int index)
+int set_bit(unsigned long int *n, unsigned int index)
 {
-	unsigned int max_index = sizeof(n) * 8 - 1;
-	int  new_value;
+	unsigned int max_index = sizeof(*n) * 8 - 1;
 	unsigned long int mask = 1UL << index;
 
 	if (index > max_index)
 		return (-1);
 
-	new_value = (n | mask);
+	*n |= mask;
 
-	return (new_value);
+	return (1);
 }
