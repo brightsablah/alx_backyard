@@ -1,35 +1,37 @@
 #include "main.h"
+
+
 /**
-* print_binary - Prints an integer in binary format
-* @arg: A va_list containing the integer to print in binary
-* @buffer: pointer a buffer that stores print output
-*
-* Description:
-* This function prints an integer in binary format to the standard output.
-*/
-void print_binary(va_list arg, Buffer *buffer, format_options *options)
+ * print_binary - Prints the binary representation of an unsigned long int
+ * @n: The unsigned long int to be printed in binary
+ *
+ * Description:
+ * This function prints the binary representation of an unsigned long int to
+ * the standard output.
+ */
+void print_binary(unsigned long int n)
 {
-	unsigned int num = va_arg(arg, unsigned int);
-	int leading_zeros = 1; /* Flag to skip leading zeros */
-	int i, bit;
+		/* Number of bits in unsigned long int */
+	int bit_position = sizeof(unsigned long int) * 8 - 1;
+	int leading_zero_flag = 1;
 
-	(void)(options);
-
-/* special case for num = 0 */
-	if (num == 0)
+	if (n == 0)
 	{
-		buffer_append_char(buffer, '0');
+		_putchar('0');
 		return;
 	}
-/* looping through bits of num value */
-	for (i = sizeof(unsigned int) * 8 - 1; i >= 0; i--)
+
+	while (bit_position >= 0)
 	{
-/* checking for leading zeroes and printing bits */
-		bit = (num >> i) & 1;
-		if (bit || !leading_zeros)
+		unsigned long int mask = 1UL << bit_position;
+		/* Create a mask with only one bit set at the current position */
+
+		if ((n & mask) != 0 || !leading_zero_flag)
 		{
-			buffer_append_char(buffer, '0' + bit);
-			leading_zeros = 0;
+			leading_zero_flag = 0;
+			putchar(((n & mask) != 0) ? '1' : '0');
 		}
+
+		bit_position--; /* Move to the next bit position */
 	}
 }
